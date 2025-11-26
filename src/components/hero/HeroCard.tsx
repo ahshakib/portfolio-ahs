@@ -76,7 +76,7 @@ export default function HeroCard() {
               </a>
               <a href="tel:+8801859729426" className="flex items-center gap-2 hover:text-neon-cyan transition-colors">
                 <Phone className="w-4 h-4" />
-                <span>+880 1859 729 426</span>
+                <span>+8801859729426</span>
               </a>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
