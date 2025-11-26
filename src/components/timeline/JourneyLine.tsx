@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Award, GraduationCap } from "lucide-react";
-import { useRef } from "react";
+import { Award, ExternalLink, GraduationCap, X } from "lucide-react";
+import { useRef, useState } from "react";
 
 interface TimelineItem {
   id: string;
@@ -10,6 +10,8 @@ interface TimelineItem {
   subtitle: string;
   date: string;
   description?: string;
+  image?: string;
+  certificateUrl?: string;
   icon: React.ReactNode;
   type: "education" | "certification" | "experience";
 }
@@ -17,7 +19,7 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
   {
     id: "edu-1",
-    title: "B.Sc (Engg.) in Computer Science & Engineering",
+    title: " B.Sc (Engg.) in Computer Science & Engineering",
     subtitle: "Comilla University, Comilla",
     date: "01/2019 – 01/2024",
     description: "CGPA: 3.34",
@@ -29,6 +31,7 @@ const timelineData: TimelineItem[] = [
     title: "MERN & PERN Full-Stack Bootcamp",
     subtitle: "BongoDev",
     date: "2023",
+    image: "/Aftab Hossain Shakib.png",
     icon: <Award className="w-6 h-6" />,
     type: "certification",
   },
@@ -37,6 +40,7 @@ const timelineData: TimelineItem[] = [
     title: "Back End Development and APIs",
     subtitle: "freeCodeCamp",
     date: "2023",
+    certificateUrl: "https://www.freecodecamp.org/certification/ahshakib75/back-end-development-and-apis",
     icon: <Award className="w-6 h-6" />,
     type: "certification",
   },
@@ -45,6 +49,7 @@ const timelineData: TimelineItem[] = [
     title: "JavaScript Algorithms and Data Structures",
     subtitle: "freeCodeCamp",
     date: "2022",
+    certificateUrl: "https://www.freecodecamp.org/certification/ahshakib75/javascript-algorithms-and-data-structures",
     icon: <Award className="w-6 h-6" />,
     type: "certification",
   },
@@ -52,6 +57,7 @@ const timelineData: TimelineItem[] = [
 
 export default function JourneyLine() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
@@ -95,6 +101,26 @@ export default function JourneyLine() {
                 {item.description && (
                   <p className="text-gray-400 mt-2 text-sm">{item.description}</p>
                 )}
+                {item.image && (
+                  <button
+                    onClick={() => setSelectedImage(item.image!)}
+                    className="mt-3 flex items-center gap-2 text-sm text-neon-cyan hover:text-white transition-colors group"
+                  >
+                    <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    View Certificate
+                  </button>
+                )}
+                {item.certificateUrl && (
+                  <a
+                    href={item.certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 flex items-center gap-2 text-sm text-neon-cyan hover:text-white transition-colors group"
+                  >
+                    <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    View Certificate
+                  </a>
+                )}
               </div>
             </div>
 
@@ -108,6 +134,37 @@ export default function JourneyLine() {
           </motion.div>
         ))}
       </div>
+
+      {/* Certificate Modal */}
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setSelectedImage(null)}
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-4xl w-full bg-midnight-navy border border-neon-cyan/50 rounded-2xl p-4 shadow-2xl"
+          >
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-4 -right-4 p-2 bg-midnight-navy border border-neon-cyan rounded-full hover:bg-neon-cyan hover:text-midnight-navy transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Certificate"
+              className="w-full h-auto rounded-lg"
+            />
+          </motion.div>
+        </motion.div>
+      )}
     </div>
   );
 }
