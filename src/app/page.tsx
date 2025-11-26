@@ -30,41 +30,41 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="container mx-auto px-4 py-12 space-y-24"
+            className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-16 sm:space-y-24"
           >
-            <section className="min-h-[80vh] flex items-center justify-center">
+            <section className="min-h-[80vh] flex items-center justify-center px-2">
               <HeroCard />
             </section>
             
-            <section className="py-20">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-soft-purple">
+            <section className="py-12 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 sm:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-soft-purple">
                 Technical Proficiency
               </h2>
               <TechRadar />
             </section>
 
-            <section className="py-20 px-4 md:px-0">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
+            <section className="py-12 sm:py-20 px-2 sm:px-4 md:px-0">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">
                 Featured Projects
               </h2>
               <ProjectDock />
             </section>
 
-            <section className="py-20 px-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-soft-purple">
+            <section className="py-12 sm:py-20 px-2 sm:px-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 sm:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-soft-purple">
                 Problem Solving
               </h2>
               <AlgoHeatmap />
             </section>
 
-            <section className="py-20">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
+            <section className="py-12 sm:py-20">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 sm:mb-16 text-white">
                 My Journey
               </h2>
               <JourneyLine />
             </section>
 
-            <section className="py-20 px-4">
+            <section className="py-12 sm:py-20 px-2 sm:px-4">
               <ContactPanel />
             </section>
             

@@ -4,19 +4,19 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { FaDatabase } from "react-icons/fa";
 import {
-  SiCplusplus,
-  SiDocker,
-  SiExpress,
-  SiGit,
-  SiGo, SiJavascript,
-  SiMongodb,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiPostgresql,
-  SiReact,
-  SiTailwindcss,
-  SiTypescript,
-  SiVercel
+    SiCplusplus,
+    SiDocker,
+    SiExpress,
+    SiGit,
+    SiGo, SiJavascript,
+    SiMongodb,
+    SiNextdotjs,
+    SiNodedotjs,
+    SiPostgresql,
+    SiReact,
+    SiTailwindcss,
+    SiTypescript,
+    SiVercel
 } from "react-icons/si";
 
 interface Skill {
@@ -56,7 +56,7 @@ export default function TechRadar() {
   const [hoveredSkill, setHoveredSkill] = useState<Skill | null>(null);
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto aspect-square flex items-center justify-center">
+    <div className="relative w-full max-w-sm md:max-w-2xl mx-auto aspect-square flex items-center justify-center px-4">
       {/* Radar Background Rings */}
       <div className="absolute inset-0 flex items-center justify-center">
         {[20, 50, 80].map((radius, i) => (
