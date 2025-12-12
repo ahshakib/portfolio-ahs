@@ -20,6 +20,7 @@ const projects: Project[] = [
     color: "#67f7ff", // Neon Cyan
     githubUrl: "https://github.com/ahshakib/Collaborative-Storytelling-App",
     image: "/storytelling-preview.png",
+    liveUrl: "https://collaborative-storytelling-app.vercel.app/"
   },
   {
     id: "handson",
